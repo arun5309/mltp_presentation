@@ -106,26 +106,57 @@
 
 \section{Formal Languages}
 \begin{frame}
-\end{frame}
-
-\subsection{Complement of a language}
-\begin{frame}
+\begin{itemize}
+    \item We have an alphabet $\Sigma$ (we can assume WLOG $\Sigma = \{0, 1\}$. In fact assuming $\Sigma = \{1\}$ is fine as we doing computability theory and not complexity theory).
+    \item A string is a finite sequence of symbols from $\Sigma$. The set of all strings is denoted by $\Sigma^*$ (Kleene closure).
+    \item A language $L$ is a subset of $\Sigma^*$. That is $L \in 2^{\Sigma^*}$.
+    \item We can formalize our problem and as a formal language and then worry about using some machine to decide it (i.e solve the membership problem for any string).
+\end{itemize}
 \end{frame}
 
 \section{Turing Machine}
 \begin{frame}
+\begin{itemize}
+    \item The formalism under consideration defines a Turing Machine as a machine with finite control, single tape, we have unary representation of the input on the tape at the start (i.e if input is $n$ then first $n$ cells of the tape have a 1 (i.e marked or stroked) and the rest are 0 (i.e unmarked or blank)), the machine halts if it is in some state in the finite control and encounters some symbol in the table (what these states and symbols are specific to the Turing machine. The states of the finite control can be partitioned into accepting and rejecting states won't be relevant for the proof.).
+    \item More formally a Turing Machine is a set of finite states $Q$, initial state $q_0$, a set of accepting states $F$ (such that $F \subseteq Q$) and a partial function $\delta : Q \times \{0, 1\} \to Q \times \{0, 1\} \times \{L, R\}$ (halt if this function is not defined at that point).
+    \item Each cell position denoted by a natural number. We have a discrete timeline and we have exactly one application of the transition function in one time step.
+\end{itemize}
 \end{frame}
 
 \subsection{Decider vs Enumerator (undecidable vs unrecognizable)}
 \begin{frame}
+\begin{itemize}
+    \item A particular Turing machine can decide or recognize a formal language.
+    \item To decide means to solve the membership problem for any string (i.e when the Turing machine is given a string as input it halts in an accepting state if the string belongs to the language, otherwise it halts in rejecting state).
+    \item To recognize means to enumerate over all strings of the language. Equivalently, partially solves i.e semidecides the membership problem (i.e when the Turing machine is given a string as input it halts in an accepting state if the string belongs to the language otherwise it rejects by either halting in a rejecting state or going into an infinite loop). Observe, that any decider for a language is also a recognizer for that language (but the converse is not necessarily true).
+    \item A formal language is said to be undecidable if there is no Turing that decides that language.
+    \item A formal language is said to be unrecognizable if there is no Turing that decides that language.
+\end{itemize}
 \end{frame}
 
 \subsection{Encoding a Turing Machine as a Finite String}
 \begin{frame}
+\begin{itemize}
+    \item Observe that description of a Turing machine only consists of $Q$, $q_0$, $F$, $\delta$; as all of them are finite we can give description of a Turing machine as a finite string.
+    \item Intuitively this finite string can be seen as the "source code" of the Turing machine.
+\end{itemize}
 \end{frame}
 
 \subsection{Universal Turing Machine}
 \begin{frame}
+\begin{itemize}
+    \item There exist Turing machines with the property that they take as input description of a Turing machine, input string and can simulate it on the input string. Such Turing machines are called universal Turing machines.
+    \item These universal Turing machines can be intuitively seen as interpreters.
+\end{itemize}
+\end{frame}
+
+\subsection{Complement of a language}
+\begin{frame}
+\begin{itemize}
+    \item Complement of a formal language $L$ is $\Sigma^* \setminus L$. Complement of language $L$ will be denoted by $\overline{L}$.
+    \item If both $L$ and $\overline{L}$ are recognizable then $L$ is decidable.
+    \item If $L$ is undecidable then $L$ or $\overline{L}$ is unrecognizable (contrapositive of the previous point).
+\end{itemize}
 \end{frame}
 
 \section{Robinson Arithmetic}
