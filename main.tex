@@ -74,7 +74,7 @@
 \begin{frame}
 \begin{itemize}
     \item Turing Computability (captures the notion of algorithm/effective calculability) and relationship to formal languages
-    \item Church-Turing Thesis: TODO
+    \item Church-Turing Thesis: ''Every effectively calculable function is a computable function.`` (We shall use the expression "computable function" to mean a function calculable by a machine, and let "effectively calculable" refer to the intuitive idea without particular identification with any one of these definitions.) \cite{turing1938systems}
     \item Equivalent notions of computability: General recursive functions, Lambda calculus, Cyclic tag systems, Rule 110, most programming languages (might be helpful to think in terms of a computer program in a particular programming language) etc.
     \item Universal Turing Machines (crucially exploits the fact that description of a particular Turing machine is of finite size and hence be encoded as a natural number)
 \end{itemize}     
@@ -85,7 +85,7 @@
 \begin{itemize}
     \item Not all formal languages can be decided by a Turing machines. Examples are Halting problem, determining validity of a first-order logic formula (Church's theorem), post-correspondence problem, Hilbert's $10^{\text{th}}$ problem, etc.
     \item Existence of such languages can be seen by a simple counting argument.
-    \item Existence of undecidable languages implies that certain functions are not computable. Examples are busy beaver function, computing a solution to a set of Diophantine equations (output $\bot$ if no solutions exist), come up with a proof for a first-order logic formula (output $\bot$ if no proof exists) etc.
+    \item Existence of undecidable languages implies that certain functions are not computable (can be seen through reductions). Examples are busy beaver function, computing a solution to a set of Diophantine equations (output $\bot$ if no solutions exist), come up with a proof for a first-order logic formula (output $\bot$ if no proof exists) etc.
     \item Notion of recursive enumerability (relationship to Godel's incompleteness theorem. Use Lindenbaum extension to show that such subsets exist.).
 \end{itemize}     
 \end{frame}
