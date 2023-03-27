@@ -45,22 +45,114 @@
 \addtocounter{framenumber}{-1}
 
 % You can declare different parts as a parentof sections
-\begin{frame}{Part I: Demo Presentation Part}
+\begin{frame}{Part I: Introduction}
     \tableofcontents[part=1]
 \end{frame}
-\begin{frame}{Part II: Demo Presentation Part 2}
+\begin{frame}{Part II: Preliminaries}
     \tableofcontents[part=2]
 \end{frame}
+\begin{frame}{Part III: Proof of Undecidability of Halting Problem}
+    \tableofcontents[part=3]
+\end{frame}
+\begin{frame}{Part IV: Proof of Undecidability of First-order Logic}
+    \tableofcontents[part=4]
+\end{frame}
 
-\makepart{Demo Part}
+\makepart{Introduction}
 
-\section{Introduction}
+\section{Motivation}
 \begin{frame}
 \begin{itemize}
-    \item Dummy text \cite{example_2022}
+    \item Can we have a machine that can check the proof of any mathematical statement?
+    \item Can we have a machine that can prove or disprove any mathematical statement?
+    \item Relationship to Godel's incompleteness theorem (contrast with Godel's completeness theorems. Especially different notions of completeness.).
+    \item Primary reference: \cite{boolos2002computability}
 \end{itemize}     
 \end{frame}
 
+\section{Capturing Computation}
+\begin{frame}
+\begin{itemize}
+    \item Turing Computability (captures the notion of algorithm/effective calculability) and relationship to formal languages
+    \item Church-Turing Thesis: TODO
+    \item Equivalent notions of computability: General recursive functions, Lambda calculus, Cyclic tag systems, Rule 110, most programming languages (might be helpful to think in terms of a computer program in a particular programming language) etc.
+    \item Universal Turing Machines (crucially exploits the fact that description of a particular Turing machine is of finite size and hence be encoded as a natural number)
+\end{itemize}     
+\end{frame}
+
+\section{Undecidability}
+\begin{frame}
+\begin{itemize}
+    \item Not all formal languages can be decided by a Turing machines. Examples are Halting problem, determining validity of a first-order logic formula (Church's theorem), post-correspondence problem, Hilbert's $10^{\text{th}}$ problem, etc.
+    \item Existence of such languages can be seen by a simple counting argument.
+    \item Existence of undecidable languages implies that certain functions are not computable. Examples are busy beaver function, computing a solution to a set of Diophantine equations (output $\bot$ if no solutions exist), come up with a proof for a first-order logic formula (output $\bot$ if no proof exists) etc.
+    \item Notion of recursive enumerability (relationship to Godel's incompleteness theorem. Use Lindenbaum extension to show that such subsets exist.).
+\end{itemize}     
+\end{frame}
+
+\section{Proof sketch of Church's theorem}
+\begin{frame}
+    \begin{enumerate}
+        \item Consider a particular Turing machine and an unary encoding of its input.
+        \item Encode the Turing machine and its input as a first-order logic formula in a manner such that the Turing machine halts iff first-order logic formula is valid (in fact we will be dealing specifically with implication formulas).
+        \item For the sake of contradiction assume that there exists an algorithm to decide validity of any first-order logic formula.
+        \item Use the previous algorithm to construct an algorithm for the Halting problem.
+        \item As Halting problem is undecidable we have a contradiction.
+        \item Hence, we conclude that no algorithm can decide the validity of any first-order logic formula.
+    \end{enumerate}
+\end{frame}
+
+\makepart{Preliminaries}
+
+\section{Formal Languages}
+\begin{frame}
+\end{frame}
+
+\subsection{Complement of a language}
+\begin{frame}
+\end{frame}
+
+\section{Turing Machine}
+\begin{frame}
+\end{frame}
+
+\subsection{Decider vs Enumerator (undecidable vs unrecognizable)}
+\begin{frame}
+\end{frame}
+
+\section{Robinson Arithmetic}
+\begin{frame}
+\end{frame}
+
+\section{Godel's Incompleteness Theorem}
+\begin{frame}
+\end{frame}
+
+\makepart{Proof of Undecidability of Halting Problem}
+
+\section{Statement of Halting Problem}
+\begin{frame}
+\end{frame}
+
+\section{Proof of Undecidability of Halting Problem}
+\begin{frame}
+\end{frame}
+
+\makepart{Proof of Undecidability of First-Order Logic}
+
+\section{Intuitive Explanation of the Logic's Signature}
+% TODO: In each subsection explain one component of the signature
+\begin{frame}
+\end{frame}
+
+\section{Intuitive Explanation of the Formula}
+% TODO: In each subsection explain one formula
+\begin{frame}
+\end{frame}
+
+\section{Completing the Proof}
+\begin{frame}
+\end{frame}
 
 \begin{frame}[allowframebreaks]{References}
     \printbibliography
