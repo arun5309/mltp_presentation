@@ -9,7 +9,6 @@
 % Some of it these examples are taken from the Metropolis template.
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 \documentclass[
 11pt,notheorems,hyperref={pdfauthor=whatever}
 ]{beamer}
@@ -207,10 +206,46 @@
 
 \section{Statement of Halting Problem}
 \begin{frame}
+\begin{itemize}
+    \item Give a Turing machine to decide the following language $K = \{(i, x) | \text{ program } i \text{ halts when run on input } x\}$.
+    \item Essentially we must determine whether a particular Turing machine halts on a particular input or not.
+    \item In set above $i$ is the finite string representation of the particular Turing machine and $x$ is the finite string representation of the particular input.
+    \item We need to determine whether the Turing machine represented by $i$ halts on input $x$ or not.
+    \item \textbf{Note: } If $i$ is not a valid representation of a Turing machine then map it some arbitrary Turing machine say the Turing machine that accepts on all inpu
+\end{itemize}
 \end{frame}
 
 \section{Proof of Undecidability of Halting Problem}
 \begin{frame}
+\begin{enumerate}
+    \item For the sake of contradiction lets assume that there is a computable function $$h(i, x) = \begin{cases}
+  1 & \text{if } \text{  program }i\text{ halts on input }x, \\
+  0 & \text{otherwise.}
+\end{cases}$$. Observe, that existence of $h$ is equivalent to saying there exists Turing machine that can decide the language $K$.
+    \item Now, for any computable function $f$ taking two arguments (later we show that $h$ can't be such a function to obtain a contradiction. Also, arity is not that important as we can change arity effectively arbitrarily.) consider the function $$g(i) = \begin{cases}
+  0  & \text{if } f(i,i) = 0,\\
+  \text{undefined} & \text{otherwise.}
+\end{cases}$$ and the program: TODO
+    \item Overloaded $e$ to be both the name of the function and the representation of the function.
+\end{enumerate}
+\end{frame}
+
+\subsection{Proof continuation}
+\begin{frame}
+
+
+
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item Now, there are only two cases to consider (by the definition of $g$):-
+    \begin{enumerate}
+        \item $f(e, e) = 0$. Therefore, $g(e) = 0$. Machine represented by $e$ halts on input $e$ so $h(e, e) = 1$.
+        \item $f(e, e) \not= 0$. Therefore, $g(e)$ is undefined. Machine represented by $e$ does not halt on input $e$ therefore $h(e, e) = 0$.
+    \end{enumerate}
+    \item In the both cases considered above $f(e, e) \not= h(e, e)$. Therefore, $h$ does not output the same value as any $f$ ($f$ can be any computable function taking two arguments).
+    \item Therefore $h$ is not computable. A contradiction.
+    \item Therefore, the Halting problem is undecidable.
+\end{enumerate}
 \end{frame}
 
 \makepart{Proof of Undecidability of First-Order Logic}
