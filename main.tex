@@ -146,7 +146,7 @@
 \begin{frame}
 \begin{itemize}
     \item There exist Turing machines with the property that they take as input description of a Turing machine, input string and can simulate it on the input string. Such Turing machines are called universal Turing machines.
-    \item These universal Turing machines can be intuitively seen as interpreters.
+    \item These universal Turing machines can be intuitively seen as interpreters (an explicit construction of a Turing machine is not provided here).
 \end{itemize}
 \end{frame}
 
@@ -161,10 +161,46 @@
 
 \section{Robinson Arithmetic}
 \begin{frame}
+\begin{itemize}
+    \item Essentially Peano arithmetic without the axiom schema of induction.
+    \item Every computable function can be represented in Robinson arithmetic. \cite{odifreddi1992classical} (Using this along side diagonalization will help us prove Godel's incompleteness theorem)
+    \item Robinson arithmetic (denoted by $\textbf{Q}$ is essentially undecidable i.e every consistent extension is undecidable. Theory of fields is undecidable but not essentially undecidable.)
+    \item It is a handy tool for proving incompleteness theorems and other limitative results. \footnote{http://www.columbia.edu/~jc4345/Notes\%20on\%20Incompleteness\%20Theorems.pdf}
+\end{itemize}
+\end{frame}
+
+\subsection{Signature}
+\begin{frame}
+\begin{itemize}
+    \item $S^{(1)}$ is intuitively the successor function
+    \item $+^{(2)}$ is intuitively the addition function
+    \item $\cdot^{(2)}$ is intuitively the addition function
+    \item $0$ is intuitively the constant zero i.e additive identity
+    \item $1$ is intuitively the constant one i.e multiplicative identity
+\end{itemize}
+\end{frame}
+
+\subsection{Axioms}
+\begin{frame}
+    \begin{enumerate}
+        \item $Sx \not= 0$ (zero is not the successor of any number)
+        \item $(Sx = Sy) \implies x = y$ (if successors of two numbers are equal then the two numbers are equal)
+        \item $y = 0 \vee \exists_x (Sx = y)$ (Every number is either 0 or has a predecessor i.e is a successor of some number)
+        \item $x + 0 = x$ (Recursive definition of addition base case. Also, can be interpreted as $0$ is additive right identity)
+        \item $x + Sy = S(x+y)$ (Recursive definition of addition main case)
+        \item $x \cdot 0 = 0$ (Recursive definition of multiplication base case. Also, can be interpreted as $0$ is multiplicative right identity)
+        \item $x \cdot Sy = x \cdot y + x$ (Recursive definition of multiplication main case)
+    \end{enumerate}
 \end{frame}
 
 \section{Godel's Incompleteness Theorem}
 \begin{frame}
+\begin{itemize}
+    \item Does not contradict the Godel's completeness theorem. As different notions of completeness is used in the two theorems.
+    \item \textbf{Godel's first incompleteness theorem: } Any consistent formal system $F$ (formal system $F$ means the theorems of $F$ are recursively enumerable) within which a certain amount of elementary arithmetic (Robinson arithmetic) can be carried out is incomplete; i.e., there are statements of the language of $F$ which can neither be proved nor disproved in $F$. \cite{raatikainen2013godel}
+    \item \textbf{Godel's second incompleteness theorem: } For any consistent formal system $F$ within which a certain amount of elementary arithmetic (Robinson arithmetic) can be carried out, the consistency of F cannot be proved in $F$ itself. \cite{raatikainen2013godel}
+    \item We need to consider the possibility of undecidability only because incompleteness theorems exist (any incompleteness theorem will do for this purpose and not just Godel's incompleteness theorems).
+\end{itemize}
 \end{frame}
 
 \makepart{Halting Problem}
