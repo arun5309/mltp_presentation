@@ -409,13 +409,53 @@ If the space ‘——----’ in (*) is filled by
 \end{itemize}
 \end{frame}
 
-\subsection{Section D}
+\subsection{Sentence D}
 \begin{frame}
-    
+Consider a halting instruction, that is, an instruction of the type:
+\vspace{1em}
+\begin{enumerate}
+    \item[($\dagger$)] If you are in state $i$ and are scanning symbol $e$, then halt
+\end{enumerate}
+\vspace{1em}
+For each such instruction write down the sentence
+\vspace{1em}
+\begin{enumerate}
+    \item[(14)] $\exists t\exists x(\pmb{Q}_i t \wedge \pmb{L}tx \wedge \pmb{M}_e tx)$
+\end{enumerate}
+\vspace{1em}
+We let $D$ be the disjunction of all sentences of form (14) for all halting instructions ($\dagger$).\\
+\vspace{1em}
+The machine will eventually halt iff it eventually comes to a configuration where the applicable instruction is any one of the halting instructions. So the machine will eventually halt iff $D$ is true.
 \end{frame}
 
 \section{Completing the Proof}
 \begin{frame}
+If at time $a$ the machine is in state $i$, at square $p$, and the marked squares are $q_1,q_2,\cdots,q_m$, then the description of time $a$ is
+\vspace{1em}
+\begin{enumerate}
+    \item[(15)] $\pmb{Q_i a}\wedge\pmb{Lap}\wedge\pmb{Maq_1}\wedge\pmb{Maq_2}\wedge\cdots\wedge\pmb{Maq_m} \wedge \forall x((x\neq\pmb{q}_1\wedge x\neq\pmb{q}_2\wedge \cdots\wedge x\neq\pmb{q}_m)\to \pmb{M_0 a}x)$
+\end{enumerate}
+\vspace{1em}
+If the machine halts at time $b = a + 1$, that means that at time a we had configuration for which the applicable instruction as to what to do next was a halting instruction of form $(\dagger)$.\\
+\vspace{1em}
+\textbf{Lemma:} If $a\ge0$, and $b = a+1$ is a time at which the machine has not (yet) halted, then $\Gamma$ together with the description of time $a$ implies the description of time $b$.
+\vspace{1em}
+\begin{itemize}
+    \item The description of time $0$ is one of the sentences in $\Gamma$
+    \item If the machine does not stop at time $1$, the description of time $1$ will be a consequence of $\Gamma$
+    \item If the machine does not stop at time $2$, the description of time $2$ will be a consequence of $\Gamma$ together with the description of time $1$.
+    \item If it does halt at time $a+1$, we have seen that the description of time $a$, which we now know to be a consequence of $\Gamma$ implies $D$
+    \item If the machine ever halts, $\Gamma$ implies $D$
+\end{itemize}
+\end{frame}
+
+\subsection{Church's Theorem}
+\begin{frame}
+    We have shown that if the decision problem for logical implication were solvable, the halting problem would be solvable\\
+    \vspace{2em}
+    Assuming Turing's thesis, we know that the halting problem is unsolvable.\\
+    \vspace{5em}
+    \textbf{Theorem} (Church’s theorem). The decision problem for logical implication is unsolvable.
 \end{frame}
 
 \begin{frame}[allowframebreaks]{References}
