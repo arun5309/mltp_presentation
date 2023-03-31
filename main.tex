@@ -135,8 +135,8 @@
     \item A particular Turing machine can decide or recognize a formal language.
     \item To decide means to solve the membership problem for any string (i.e when the Turing machine is given a string as input it halts in an accepting state if the string belongs to the language, otherwise it halts in rejecting state).
     \item To recognize means to enumerate over all strings of the language. Equivalently, partially solves i.e semidecides the membership problem (i.e when the Turing machine is given a string as input it halts in an accepting state if the string belongs to the language otherwise it rejects by either halting in a rejecting state or going into an infinite loop). Observe, that any decider for a language is also a recognizer for that language (but the converse is not necessarily true).
-    \item A formal language is said to be undecidable if there is no Turing that decides that language.
-    \item A formal language is said to be unrecognizable if there is no Turing that decides that language.
+    \item A formal language is said to be undecidable if there is no Turing machine that decides that language.
+    \item A formal language is said to be unrecognizable if there is no Turing machine that recogonizes that language.
 \end{itemize}
 \end{frame}
 
@@ -174,7 +174,7 @@
     \setlength\itemsep{2em}
     \item Essentially Peano arithmetic without the axiom schema of induction.
     \item Every computable function can be represented in Robinson arithmetic. \cite{odifreddi1992classical} (Using this along side diagonalization will help us prove Godel's incompleteness theorem)
-    \item Robinson arithmetic (denoted by $\textbf{Q}$ is essentially undecidable i.e every consistent extension is undecidable. Theory of fields is undecidable but not essentially undecidable.)
+    \item Robinson arithmetic (denoted by $\textbf{Q}$) is essentially undecidable i.e every consistent extension is undecidable. Theory of fields is undecidable but not essentially undecidable.
     \item It is a handy tool for proving incompleteness theorems and other limitative results. \footnote{\url{http://www.columbia.edu/~jc4345/Notes\%20on\%20Incompleteness\%20Theorems.pdf}}
 \end{itemize}
 \end{frame}
@@ -433,7 +433,7 @@ The machine will eventually halt iff it eventually comes to a configuration wher
 If at time $a$ the machine is in state $i$, at square $p$, and the marked squares are $q_1,q_2,\cdots,q_m$, then the description of time $a$ is
 \vspace{1em}
 \begin{enumerate}
-    \item[(15)] $\pmb{Q_i a}\wedge\pmb{Lap}\wedge\pmb{Maq_1}\wedge\pmb{Maq_2}\wedge\cdots\wedge\pmb{Maq_m} \wedge \forall x((x\neq\pmb{q}_1\wedge x\neq\pmb{q}_2\wedge \cdots\wedge x\neq\pmb{q}_m)\to \pmb{M_0 a}x)$
+    \item[(15)] $\pmb{Q_i a}\wedge\pmb{Lap}\wedge\pmb{M_1aq_1}\wedge\pmb{M_1aq_2}\wedge\cdots\wedge\pmb{M_1aq_m} \wedge \forall x((x\neq\pmb{q}_1\wedge x\neq\pmb{q}_2\wedge \cdots\wedge x\neq\pmb{q}_m)\to \pmb{M_0 a}x)$
 \end{enumerate}
 \vspace{1em}
 If the machine halts at time $b = a + 1$, that means that at time a we had configuration for which the applicable instruction as to what to do next was a halting instruction of form $(\dagger)$.\\
